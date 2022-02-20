@@ -1,0 +1,16 @@
+.right-spacer{
+    flex: 1 1 auto;
+}
+
+.logged-user{
+    padding-right: 30px;
+    font-size: initial;
+    color: #3f51b5;;
+}
+
+.mat-toolbar1{
+    background: lightblue
+}
+
+
+

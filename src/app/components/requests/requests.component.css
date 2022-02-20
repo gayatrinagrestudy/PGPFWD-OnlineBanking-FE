@@ -1,0 +1,34 @@
+.space{
+    padding-left: 100px;
+}
+.space1{
+    padding-left: 80px;
+}
+.name_wrapper {
+    display: flex;
+    margin: 10px 0;
+    
+  }
+.example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    align-items: flex-start;
+  }
+  
+  .example-radio-button {
+    margin: 5px;
+  }
+
+  .tdsize{
+    column-width: 10px;
+}
+.example-full-width {
+    width: 100%;
+   
+  }
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }

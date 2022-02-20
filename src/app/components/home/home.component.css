@@ -1,0 +1,30 @@
+.loginButton{
+    text-align: center;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.loginFont{
+  font-size: large;
+  font-weight: bold;
+  color: #3f51b5;
+  
+}
+.text-center{
+    text-align: center;
+}
+.top-margin{
+    margin-top: 30px;
+}
+.full-width{
+    width: 50%;
+}
+.welcome-tile{
+    
+   color: #3f51b5;;
+}
+.loginfail{
+    font-size: medium;
+    font-weight:normal;
+    color: red;
+}

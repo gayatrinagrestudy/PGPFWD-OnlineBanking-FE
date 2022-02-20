@@ -1,0 +1,60 @@
+<app-nav-bar></app-nav-bar>
+<br><br>
+<div class="space">
+<label id="example-radio-group-label"><h2 class="mb-3">Select account for payement transaction:</h2></label>
+<br>
+<form class="example-form" (ngSubmit)="onSubmit()" #payee="ngForm">
+  <mat-radio-group
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group" name="accountNumber"
+  [(ngModel)]="accountNumber">
+  <mat-radio-button class="example-radio-button" *ngFor="let accountDetail of accountDetails" [value]="accountDetail"
+  (change) = "getPayeeDetails(accountDetail.accountNumber)">
+    {{accountDetail.accountNumber}} ( {{accountDetail.accountType}} )
+  </mat-radio-button> 
+</mat-radio-group> 
+
+<div class="name_wrapper">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Amount to transfer</mat-label>
+    <textarea matInput name="amountTransfer" [(ngModel)]="amountTransfer"></textarea>
+  </mat-form-field><span class="space"></span>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Remark</mat-label>
+    <textarea matInput name="remark" [(ngModel)]="payee.remark"></textarea>
+  </mat-form-field>
+
+</div>
+<label id="example-radio-group-label"><h4 class="mb-3">Select Recipient:</h4></label>
+<br>
+<div>
+  <table class="table table-hover table-striped tdsize">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Bank Name(Bank Code)</th>
+        <th>Account Number</th>
+        <th>Transation Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let payeeDetail of payeeDetails">
+        <tr>
+          <td> <mat-radio-button class="example-radio-button" [value]="payeeDetail.accountNumber"
+               (change) = "selectedPayee(payeeDetail.accountNumber)">
+            </mat-radio-button> </td>
+          <td>{{payeeDetail.name}}</td>
+          <td>{{payeeDetail.bankCode}}</td>
+          <td>{{payeeDetail.accountNumber}}</td>
+          <td>{{payeeDetail.transferDate | date:'medium':'IST'}}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+  <br><br>
+  <button type="submit" mat-raised-button color="primary">Submit</button>
+  </div>
+  </form>
+
+

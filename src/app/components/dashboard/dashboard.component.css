@@ -1,0 +1,17 @@
+.space {
+    padding-left: 20px;
+}
+
+.space1{
+    padding-left: 100px;
+}
+
+.space2{
+    padding-left: 800px;
+}
+
+.userdetail {
+    column-count: 2;
+    column-gap: 25px;
+   
+  }

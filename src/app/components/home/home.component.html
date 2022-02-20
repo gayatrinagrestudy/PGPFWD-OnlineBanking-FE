@@ -1,0 +1,46 @@
+<app-nav-bar></app-nav-bar>
+<br>
+<br>
+<h1 class="text-center welcome-tile">Welcome to ICIN Bank Online</h1>
+<div class="bootstrap-wrapper">
+    <div class="container top-margin">
+        
+        <div class="row">
+        <div class="col-md-6 offset-md-3">
+        <div class="container text-center">
+
+        <img class="img-fluid" src="/assets/loginIcon.jpg" style="width: 100px;" alt=""><br><br>
+        <h1 class="loginFont">Personal Banking</h1> <br><br> 
+    
+        <form (ngSubmit)="onSubmit()">
+            
+              <div *ngIf="loginfail" class="loginfail" role="alert">
+                <strong>Wrong username or password. Try again.</strong>
+            </div>
+            <p>
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Username</mat-label>
+                <input [(ngModel)]="credentials.username" name="username" type="text" matInput>
+              </mat-form-field>
+              </p>
+              <p>
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Password</mat-label>
+                <input [(ngModel)]="credentials.password" name="password" type="password" matInput>
+              </mat-form-field>
+            </p>
+          
+                <div class="container text-center">
+                    <a><button type="submit" mat-raised-button color="primary">LOGIN</button></a> 
+                </div>
+                
+          {{credentials | json}}
+          
+        </form>
+            
+        </div>
+        </div>
+        </div>
+    </div>
+</div>
+

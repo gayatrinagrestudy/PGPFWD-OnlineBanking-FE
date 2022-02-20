@@ -1,0 +1,58 @@
+<app-nav-bar></app-nav-bar>
+<br><br>
+
+<div class="space">
+<label id="example-radio-group-label"><h2 class="mb-3">Select the account to issue Cheque Book:</h2></label>
+<br>
+<form class="example-form" (ngSubmit)="onSubmit()" #requests="ngForm">
+  <mat-radio-group
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group" name="accountNumber"
+  [(ngModel)]="accountNumber">
+  <mat-radio-button class="example-radio-button" *ngFor="let accountDetail of accountDetails" [value]="accountDetail"
+  (change) = "getServiceRequests(accountDetail.accountNumber)">
+    {{accountDetail.accountNumber}} ( {{accountDetail.accountType}} )
+  </mat-radio-button> 
+</mat-radio-group> 
+
+<div class="name_wrapper">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Description:</mat-label>
+    <textarea matInput name="reqDescription" [(ngModel)]="serviceReq.reqDescription"></textarea>
+  </mat-form-field>
+<mat-form-field class="space1" appearance="fill">
+  <mat-label>Number of Leaflet</mat-label>
+  <mat-select  name="chequeBookPages" [(ngModel)]="chequeBookPages">
+    <mat-option value="20">20</mat-option>
+    <mat-option value="30">30</mat-option>
+    <mat-option value="45">45</mat-option>
+  </mat-select>
+</mat-form-field>
+
+</div>
+<button type="submit" mat-raised-button color="primary">Submit</button>
+</form>
+<br><br>
+<div>
+  <table class="table table-hover table-striped tdsize">
+    <thead>
+      <tr>
+        <th>Account Number</th>
+        <th>Issue Date</th>
+        <th>Cheque Book Leaflet</th>
+        <th>Description</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let requestDetail of requestDetails">
+        <tr>
+          <td class="">{{requestDetail.accountNumber}}</td>
+          <td>{{requestDetail.requestedDated | date:'medium':'IST'}}</td>
+          <td>{{requestDetail.chequeBookPages}}</td>
+          <td>{{requestDetail.reqDescription}}</td>
+          <td>{{requestDetail.reqStatus}}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>

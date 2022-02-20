@@ -1,0 +1,41 @@
+<app-nav-bar></app-nav-bar>
+<br><br>
+
+<div class="space">
+<label id="example-radio-group-label"><h2 class="mb-3">Select account to view transaction details:</h2></label>
+<br>
+<mat-radio-group
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group" name="accountNumber"
+  [(ngModel)]="accountNumber">
+  <mat-radio-button class="example-radio-button" *ngFor="let accountDetail of accountDetails" [value]="accountDetail"
+  (change) = "getTransactions(accountDetail.accountNumber)">
+    {{accountDetail.accountNumber}} ( {{accountDetail.accountType}} )
+  </mat-radio-button> 
+</mat-radio-group> 
+<div>
+  <table class="table table-hover table-striped tdsize">
+    <thead>
+      <tr>
+        <th>Transaction Date</th>
+        <th>Deposit Amount</th>
+        <th>Withdraw Amount</th>
+        <th>Remark</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let transactionDetail of transactionDetails">
+        <tr>
+          <td class="">{{transactionDetail.txnDate | date:'medium':'IST'}}</td>
+          <td>{{transactionDetail.deposit}}</td>
+          <td>{{transactionDetail.withdraw}}</td>
+          <td>{{transactionDetail.remark}}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+
+
+
+      
+ 
