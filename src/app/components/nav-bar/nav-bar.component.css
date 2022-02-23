@@ -11,6 +11,10 @@
 .mat-toolbar1{
     background: lightblue
 }
+.toolbar{
+    height: 10px;
+    background:cornsilk;
+}
 
 
 

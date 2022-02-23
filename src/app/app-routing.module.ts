@@ -1,3 +1,5 @@
+import { UpdateUserComponent } from './components/update-user/update-user.component';
+import { AdminComponent } from './components/admin/admin.component';
 import { RequestsComponent } from './components/requests/requests.component';
 import { PayeelistComponent } from './components/payeelist/payeelist.component';
 
@@ -7,6 +9,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './services/auth.guard';
 import { TransactionsComponent } from './components/transactions/transactions.component';
+import { AdmindashboardComponent } from './components/admindashboard/admindashboard.component';
 
 const routes: Routes = [
   {
@@ -42,7 +45,23 @@ const routes: Routes = [
    component:RequestsComponent,
    pathMatch:'full',
    canActivate: [AuthGuard]
+},
+ { 
+   path:'admin',
+   component:AdminComponent, 
+   pathMatch:'full'
+ },
+ { 
+  path:'admindashboard',
+  component:AdmindashboardComponent,
+  pathMatch:'full'
+},
+{ 
+  path:'updateUser',
+  component:UpdateUserComponent,
+  pathMatch:'full'
 }
+
 ];
 
 @NgModule({

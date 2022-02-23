@@ -53,4 +53,12 @@ export class UserService {
    updateRecipient(payee:any): Observable<any>{
     return this.http.post<any>(`${this.baseurl}/user/recipient/amtcredited`, payee);  
   }
+  
+  getAllUserDetails() {
+    return this.http.get(`${this.dashboardurl}/users/all`);
+ }
+ updateUserAcctStatus(status:string,accNum:string){
+  return this.http.get(`${this.dashboardurl}/users/account/statusupdate/${status}/${accNum}`);
+ }
+  
 }

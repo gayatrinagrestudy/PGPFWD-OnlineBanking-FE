@@ -1,10 +1,11 @@
-<mat-toolbar color="primary"><span>ICIN Bank ONLINE</span></mat-toolbar>
+<mat-toolbar color="primary" ><span>ICIN BANK</span></mat-toolbar>
+<mat-toolbar class="toolbar" ></mat-toolbar>
 <mat-toolbar class="mat-toolbar1">
     <span><a *ngIf="!loggedIn" button mat-button routerLink="/">Products & Services</a></span>
     <span><a *ngIf="!loggedIn" button mat-button routerLink="/">Apply For Account</a></span>
     <span><a *ngIf="!loggedIn" button mat-button routerLink="/">Contact</a></span>
     <span><a *ngIf="!loggedIn" button mat-button routerLink="/">FAQ</a></span>  
-    <span><a *ngIf="!loggedIn" button mat-button routerLink="/">Administraton</a></span>
+    <span><a *ngIf="!loggedIn" button mat-button routerLink="/admin">Administraton</a></span>
 
     <span><a *ngIf="loggedIn" button mat-button routerLink="/dashboard">Home</a></span>
     <span><a *ngIf="loggedIn" button mat-button routerLink="/transaction">Transaction Details</a></span>

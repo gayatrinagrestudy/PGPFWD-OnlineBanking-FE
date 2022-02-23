@@ -25,6 +25,11 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatTableModule} from '@angular/material/table';
 import { PayeelistComponent } from './components/payeelist/payeelist.component';
 import { RequestsComponent } from './components/requests/requests.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { AdminComponent } from './components/admin/admin.component';
+import { AdmindashboardComponent } from './components/admindashboard/admindashboard.component';
+import { UpdateUserComponent } from './components/update-user/update-user.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -36,6 +41,9 @@ import { RequestsComponent } from './components/requests/requests.component';
     TransactionsComponent,
     PayeelistComponent,
     RequestsComponent,
+    AdminComponent,
+    AdmindashboardComponent,
+    UpdateUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +60,9 @@ import { RequestsComponent } from './components/requests/requests.component';
     MatRadioModule,
     FormsModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonToggleModule,
+    MatTooltipModule
   ],
   providers: [LoginService, AuthGuard, {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true} ],
   bootstrap: [AppComponent]

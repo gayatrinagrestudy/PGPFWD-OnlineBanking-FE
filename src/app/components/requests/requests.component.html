@@ -2,7 +2,10 @@
 <br><br>
 
 <div class="space">
-<label id="example-radio-group-label"><h2 class="mb-3">Select the account to issue Cheque Book:</h2></label>
+  <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Request is submitted successfully!</strong>
+  </div>
+<label id="example-radio-group-label"><h3 class="mb-3"><strong> Select account to issue Cheque Book:</strong></h3></label>
 <br>
 <form class="example-form" (ngSubmit)="onSubmit()" #requests="ngForm">
   <mat-radio-group

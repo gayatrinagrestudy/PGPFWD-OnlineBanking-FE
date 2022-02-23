@@ -2,7 +2,7 @@
 <br><br>
 
 <div class="space">
-<label id="example-radio-group-label"><h2 class="mb-3">Select account to view transaction details:</h2></label>
+<label id="example-radio-group-label"><h3 class="mb-3"><strong>Select account to view transaction details:</strong></h3></label>
 <br>
 <mat-radio-group
   aria-labelledby="example-radio-group-label"
@@ -27,8 +27,8 @@
       <ng-container *ngFor="let transactionDetail of transactionDetails">
         <tr>
           <td class="">{{transactionDetail.txnDate | date:'medium':'IST'}}</td>
-          <td>{{transactionDetail.deposit}}</td>
-          <td>{{transactionDetail.withdraw}}</td>
+          <td>{{transactionDetail.deposit | currency:"&#8377;"}}</td>
+          <td>{{transactionDetail.withdraw | currency:"&#8377;"}}</td>
           <td>{{transactionDetail.remark}}</td>
         </tr>
       </ng-container>

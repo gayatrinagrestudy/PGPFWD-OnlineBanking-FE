@@ -1,7 +1,10 @@
 <app-nav-bar></app-nav-bar>
 <br><br>
 <div class="space">
-<label id="example-radio-group-label"><h2 class="mb-3">Select account for payement transaction:</h2></label>
+  <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Amount is transferred successfully!</strong>
+</div>
+<label id="example-radio-group-label"><h3 class="mb-3"><strong>Select account for payment transaction:</strong></h3></label>
 <br>
 <form class="example-form" (ngSubmit)="onSubmit()" #payee="ngForm">
   <mat-radio-group
@@ -21,11 +24,11 @@
   </mat-form-field><span class="space"></span>
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Remark</mat-label>
-    <textarea matInput name="remark" [(ngModel)]="payee.remark"></textarea>
+    <textarea matInput name="remark" [(ngModel)]="remark"></textarea>
   </mat-form-field>
 
 </div>
-<label id="example-radio-group-label"><h4 class="mb-3">Select Recipient:</h4></label>
+<label id="example-radio-group-label"><h3 class="mb-3"><strong>Select Recipient:</strong></h3></label>
 <br>
 <div>
   <table class="table table-hover table-striped tdsize">

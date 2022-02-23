@@ -14,6 +14,7 @@ export class RequestsComponent implements OnInit {
   accountDetails: any[] ;
   chequeBookPages = 0;
   serviceReq: ServiceRequest;
+  alert:boolean;
   constructor(private user: UserService) {
     this.serviceReq = new ServiceRequest();
    
@@ -42,6 +43,7 @@ export class RequestsComponent implements OnInit {
     this.user.getServiceRequests(accountNumber).subscribe((reqDetails:any) =>
       {
         this.requestDetails=reqDetails;
+      
       },
       error =>{
         console.log(error);
@@ -54,9 +56,11 @@ export class RequestsComponent implements OnInit {
     this.user.createServiceRequests(this.serviceReq).subscribe((result:ServiceRequest) =>
     {
       this.requestDetails.push(result);
+      this.alert=true;
     },
     error =>{
       console.log(error);
+      this.alert=false;
     }
     )
   }

@@ -1,8 +1,8 @@
 <app-nav-bar></app-nav-bar>
 <br><br>
-
-<div class="card" >
-  <h2 class="mb-3">User Deatils</h2>
+<div class="space">
+<div class="card space backgrcolor" >
+  <h3 class="mb-3"><strong>User Details</strong></h3>
       <div class="card-body userdetail" *ngFor ="let user of userDetails"> 
       <h3>Name:<span class="space"></span> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;{{user.firstName}} {{user.lastName}}</h3>
       <h3>Adddress: <span class="space"></span> {{user.address.building}}, 
@@ -13,14 +13,17 @@
     </div>
 </div>
 
-<div class="card" >
-  <h2 class="mb-3">Account Summary</h2>
+<div class="card space backgrcolor" >
+  <h3 class="mb-3"><strong>Account Summary</strong></h3>
       <div class="card-body userdetail" *ngFor ="let accnt of accountDetails"> 
+        <div class="card space backgrcolor1" >
       <h3>Account Number:<span class="space"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{accnt.accountNumber}}</h3>
-      <h3>Balance: <span class="space1"></span>{{accnt.accountBalance}}</h3>
+      <h3>Balance: <span class="space1"></span>{{accnt.accountBalance | currency:"&#8377;"}}</h3>
       <h3>Last Transaction:<span class="space1"></span>{{accnt.lastTransactionDate | date:'medium':'IST' }}</h3>
       <h3>Account Type:<span class="space1"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{accnt.accountType}}</h3>
     </div>
+    </div>
+</div>
 </div>
 
 

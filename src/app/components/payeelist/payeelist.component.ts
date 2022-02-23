@@ -15,7 +15,9 @@ export class PayeelistComponent implements OnInit {
   payeeDetails: any[] ;
   fromAccount:string;
   amountTransfer:string;
+  remark:string;
   payee:Payee;
+  alert:boolean;
 
   constructor(private user: UserService) {
     this.getAccountSummary();
@@ -41,6 +43,7 @@ export class PayeelistComponent implements OnInit {
     this.user.getRecipients(accountNo).subscribe((payee:any) =>
       {
         this.payeeDetails=payee;
+ 
       },
       error =>{
         console.log(error);
@@ -53,16 +56,15 @@ export class PayeelistComponent implements OnInit {
   }
   onSubmit(){
     this.payee.transferDate = new Date();
-    console.log("***************",this.recipientAccountNo)
-    
-    console.log("***************",this.amountTransfer)
     this.payee.accountNumber = this.recipientAccountNo;
     this.payee.amountTransfer = this.amountTransfer;
+    this.payee.remark = this.remark;
     this.user.updateRecipient(this.payee).subscribe((repDetails:any) => {
-      console.log("***************",repDetails.payeeAccount)
       this.getPayeeDetails(repDetails.payeeAccount);
+      this.alert=true;
     },
       error =>{
+        this.alert=false;
         console.log(error);
       }
   )
